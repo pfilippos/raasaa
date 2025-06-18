@@ -1,0 +1,159 @@
+version: "3.1"
+
+stories:
+
+- story: complete car recommendation path with greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+  - intent: inform_size
+  - action: action_extract_car_size
+  - action: action_summarize_and_recommend
+  - intent: thank_you
+  - action: utter_thank_you
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: complete car recommendation path with named greeting
+  steps:
+  - intent: greet_with_name
+  - action: action_greet_with_name
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+  - intent: inform_size
+  - action: action_extract_car_size
+  - action: action_summarize_and_recommend
+  - intent: thank_you
+  - action: utter_thank_you
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: direct car request path
+  steps:
+  - intent: ask_car_recommendation
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+  - intent: inform_size
+  - action: action_extract_car_size
+  - action: action_summarize_and_recommend
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: early exit path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: fallback purpose path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: nlu_fallback
+  - action: utter_fallback_purpose
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+
+- story: fallback budget path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: nlu_fallback
+  - action: utter_fallback_budget
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+
+- story: fallback fuel type path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+  - intent: nlu_fallback
+  - action: utter_fallback_fuel
+  - action: utter_ask_fuel_type
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+
+- story: fallback size path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+  - intent: nlu_fallback
+  - action: utter_fallback_size
+  - action: utter_ask_size
+  - intent: inform_size
+  - action: action_extract_car_size
+  - action: action_summarize_and_recommend
+
+- story: fallback after summarization
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: utter_ask_purpose
+  - intent: inform_purpose
+  - action: utter_ask_budget
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+  - intent: inform_size
+  - action: action_extract_car_size
+  - action: action_summarize_and_recommend
+  - intent: nlu_fallback
+  - action: utter_thank_you
+  - action: utter_goodbye

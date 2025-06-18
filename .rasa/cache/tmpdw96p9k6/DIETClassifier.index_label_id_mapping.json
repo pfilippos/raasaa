@@ -1,0 +1,10 @@
+{
+  "0": "ask_car_recommendation",
+  "1": "goodbye",
+  "2": "greet",
+  "3": "inform_budget",
+  "4": "inform_fuel_type",
+  "5": "inform_purpose",
+  "6": "inform_size",
+  "7": "thank_you"
+}

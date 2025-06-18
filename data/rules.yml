@@ -1,0 +1,94 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Thank user when they say thanks
+  steps:
+  - intent: thank_you
+  - action: utter_thank_you
+
+- rule: End conversation after thank you when no more info needed
+  steps:
+  - action: utter_thank_you
+  - intent: thank_you
+  - action: utter_goodbye
+
+- rule: Show more car recommendations
+  steps:
+  - action: action_summarize_and_recommend
+  - intent: ask_more_cars
+  - action: action_show_more_cars
+
+- rule: Show more cars when user affirms
+  steps:
+  - action: action_summarize_and_recommend
+  - intent: affirm
+  - action: action_show_more_cars
+
+- rule: Greet user when they greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Greet user with name when they provide it
+  steps:
+  - intent: greet_with_name
+  - action: action_greet_with_name
+
+- rule: Extract budget and ask fuel type
+  steps:
+  - intent: inform_budget
+  - action: action_extract_budget
+  - action: utter_ask_fuel_type
+
+- rule: Extract fuel type and ask size
+  steps:
+  - intent: inform_fuel_type
+  - action: action_extract_fuel_type
+  - action: utter_ask_size
+
+- rule: Extract size and summarize
+  steps:
+  - intent: inform_size
+  - action: action_extract_car_size
+  - action: action_summarize_and_recommend
+
+- rule: Handle fallback after asking purpose
+  steps:
+  - action: utter_ask_purpose
+  - intent: nlu_fallback
+  - action: utter_fallback_purpose
+  - action: utter_ask_purpose
+
+- rule: Handle fallback after asking budget
+  steps:
+  - action: utter_ask_budget
+  - intent: nlu_fallback
+  - action: utter_fallback_budget
+  - action: utter_ask_budget
+
+- rule: Handle fallback after asking fuel type
+  steps:
+  - action: utter_ask_fuel_type
+  - intent: nlu_fallback
+  - action: utter_fallback_fuel
+  - action: utter_ask_fuel_type
+
+- rule: Handle fallback after asking size
+  steps:
+  - action: utter_ask_size
+  - intent: nlu_fallback
+  - action: utter_fallback_size
+  - action: utter_ask_size
+
+- rule: Handle fallback after summarization
+  steps:
+  - action: action_summarize_and_recommend
+  - intent: nlu_fallback
+  - action: utter_thank_you
+  - action: utter_goodbye

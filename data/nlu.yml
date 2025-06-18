@@ -1,0 +1,458 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hi there
+    - greetings
+    - welcome
+    - hey there
+    - hello friend
+    - hi there
+    - good day
+    - hey there
+    - hello there
+    - hi there
+    - greetings
+    - welcome
+    - hey there
+    - hello friend
+    - hi there
+    - good day
+
+- intent: greet_with_name
+  examples: |
+    - Hi my name is [Simon](name)
+    - Hello I am [Sarah](name)
+    - Hey I'm [Mike](name)
+    - Hi there, I'm [Emma](name)
+    - Hello, my name is [David](name)
+    - Hey, I am [Lisa](name)
+    - Hi, [Tom](name) here
+    - Hello, this is [Anna](name)
+    - My name is [James](name)
+    - I'm [Rachel](name)
+    - This is [Peter](name)
+    - [Alex](name) here
+    - Greetings, I'm [Maria](name)
+    - Hi, you can call me [Chris](name)
+    - hello i am [John](name)
+    - hi i'm [Jessica](name)
+    - hey my name is [Michael](name)
+    - hello, [Emily](name) here
+    - hi there, call me [Daniel](name)
+    - greetings, name's [Sophie](name)
+    - hey there, i'm [Andrew](name)
+    - hi, this is [Laura](name)
+    - hello everyone, i'm [Robert](name)
+    - hi folks, [Amanda](name) here
+    - my name's [William](name)
+    - you can call me [Oliver](name)
+    - i go by [Isabella](name)
+    - name is [George](name)
+    - they call me [Victoria](name)
+    - it's [Henry](name)
+    - [Elizabeth](name) speaking
+    - this is [Charles](name) speaking
+    - [Catherine](name) here to chat
+    - [Benjamin](name) at your service
+    - [Alexandra](name) would like some help
+    - [Richard](name) needs assistance
+    - [Margaret](name) wants to know
+    - [Philip](name) seeking advice
+    - hello from [Edward](name)
+    - greetings from [Charlotte](name)
+    - hey, I'm [Thomas](name)
+    - hi, my name's [Sophia](name)
+    - hello, [William](name) here
+    - greetings, I'm [Olivia](name)
+    - hi there, [James](name) at your service
+    - hello, [Emma](name) speaking
+    - hey, [Noah](name) here to help
+    - hi, [Ava](name) would like some assistance
+    - hello, [Liam](name) needs your help
+    - greetings, [Isabella](name) here
+
+- intent: goodbye
+  examples: |
+    - good bye
+    - cya
+    - goodbye
+    - see you later
+    - see you around
+    - bye
+    - bye bye
+    - see ya
+    - take care
+    - have a good day
+    - have a nice day
+    - until next time
+    - catch you later
+    - farewell
+    - adios
+    - cheers
+    - thanks for your help
+    - that's all for now
+    - I'm done
+    - that's it
+    - I'll be back later
+    - talk to you later
+    - see you soon
+    - have a great day
+    - thanks for everything
+    - appreciate your help
+    - that's all I needed
+    - I'm finished
+    - all done
+    - that's all
+    - I'll talk to you later
+    - thanks for your time
+    - have a good one
+    - take it easy
+    - until we meet again
+    - signing off
+    - I'm out
+    - peace out
+    - later
+    - gotta go
+    - I'm leaving
+    - time to go
+    - thank you and goodbye
+    - thanks and bye
+    - thank you, goodbye
+    - thanks, bye
+    - sounds good, thank you and goodbye
+    - that's great, thanks and bye
+    - perfect, thank you, goodbye
+
+- intent: thank_you
+  examples: |
+    - thanks
+    - thank you
+    - thanks a lot
+    - great, thanks
+    - appreciate it
+    - thank you so much
+    - sounds good, thank you
+    - that's great, thanks
+    - perfect, thank you
+    - thank you, that's all
+    - thanks, that's all
+    - thank you, I'm done
+    - thanks, I'm done
+    - thank you, that's it
+    - thanks, that's it
+    - amazing, thank you
+    - no need
+    - that's all I need
+    - that's enough
+    - no more needed
+    - no more questions
+    - no more info needed
+    - no more details needed
+    - no more help needed
+    - no more assistance needed
+    - no more recommendations needed
+    - no more suggestions needed
+    - no more advice needed
+    - no more guidance needed
+    - no more input needed
+    - no more information needed
+    - no more details required
+    - no more help required
+    - no more assistance required
+    - no more recommendations required
+    - no more suggestions required
+    - no more advice required
+    - no more guidance required
+    - no more input required
+    - no more information required
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+    - ok
+    - okay
+    - alright
+    - let's do it
+    - yes please
+    - yeah
+
+- intent: ask_car_recommendation
+  examples: |
+    - I need help choosing a car
+    - Can you help me find a car?
+    - I want to buy a new car
+    - What car should I get?
+    - Help me choose a car
+    - I'm looking for car recommendations
+    - Which car would be best for me?
+    - I need advice on buying a car
+    - Car recommendation please
+    - What car would you recommend?
+    - I want a car
+    - car
+    - need a car
+    - looking for a car
+    - car advice
+    - car help
+    - recommend a car
+    - suggest a car
+
+- intent: inform_purpose
+  examples: |
+    - I need it for [city driving](purpose)
+    - The car is for [long trips](purpose)
+    - I'll use it mainly for [commuting](purpose)
+    - It's a [family car](purpose)
+    - I want a [family car](purpose)
+    - need a [family car](purpose)
+    - [family](purpose) use
+    - for my [family](purpose)
+    - mostly for [family](purpose)
+    - I'll use it for [family](purpose)
+    - [work](purpose) commute
+    - for [daily commute](purpose)
+    - [weekend trips](purpose)
+    - [Urban driving](purpose) mainly
+    - [highway](purpose) driving
+    - [School runs](purpose) and errands
+
+- intent: inform_budget
+  examples: |
+    - My budget is 20000
+    - I can spend up to 35000
+    - Looking in the 25000 range
+    - Maximum 40000
+    - Around 30000
+    - Between 20000 and 30000
+    - Not more than 45000
+    - Under 50000
+    - About 15000
+    - 60000 is my limit
+    - 20000
+    - 35000
+    - 40000
+    - 25000
+    - 30000
+    - 45000
+    - 50000
+    - 15000
+    - 60000
+    - just 25000
+    - about 30000 dollars
+    - 35k
+    - 40k
+    - 35 thousand
+    - 40 thousand
+    - around 35 thousand dollars
+    - approximately 40000 dollars
+    - $20000
+    - $25k
+    - 20,000
+    - 25,000 dollars
+    - USD 30000
+    - 30k USD
+    - twenty thousand
+    - 10k dollars
+    - my budget is 10k
+    - can spend 15,000
+    - looking to spend around 20k
+    - approximately $25,000
+    - no more than 30k
+    - budget is 20 thousand dollars
+    - want to spend about 15k
+    - in the range of 25000
+    - something around 20,000
+    - 10k
+    - 10 thousand
+    - ten thousand
+    - 10,000
+    - $10k
+    - $10,000
+    - 10000
+    - about 10k
+    - around 10 thousand
+    - approximately 10k
+
+- intent: inform_fuel_type
+  examples: |
+    - [gas](fuel_type)
+    - [diesel](fuel_type)
+    - [electric](fuel_type)
+    - [hybrid](fuel_type)
+    - I prefer [gas](fuel_type)
+    - [diesel](fuel_type) would be good
+    - Looking for an [electric](fuel_type) car
+    - I want a [hybrid](fuel_type)
+    - [gas](fuel_type) car please
+    - Interested in [electric](fuel_type) vehicles
+    - [hybrid](fuel_type) would be ideal
+    - [diesel](fuel_type) engine preferred
+    - Something [eco-friendly](fuel_type)
+    - [petrol](fuel_type) car
+    - I would use [diesel](fuel_type)
+    - I want [gas](fuel_type)
+    - prefer [diesel](fuel_type)
+    - need a [gas](fuel_type) car
+    - [electric](fuel_type) please
+    - [hybrid](fuel_type) car
+    - I'd like a [diesel](fuel_type) car
+    - [gas](fuel_type) powered
+    - [diesel](fuel_type) powered
+    - [electric](fuel_type) powered
+    - running on [gas](fuel_type)
+    - running on [diesel](fuel_type)
+    - I would prefer [gas](fuel_type)
+    - I would prefer [diesel](fuel_type)
+    - I would prefer [electric](fuel_type)
+    - I would prefer [hybrid](fuel_type)
+    - I would like [electric](fuel_type)
+    - give me a [hybrid](fuel_type)
+    - show me [electric](fuel_type) cars
+    - [gas](fuel_type) engine
+    - [diesel](fuel_type) engine
+    - [hybrid](fuel_type) engine
+    - want [electric](fuel_type)
+    - need [diesel](fuel_type)
+    - looking for [gas](fuel_type)
+    - something with [diesel](fuel_type)
+    - something in [electric](fuel_type)
+    - [petrol](fuel_type) engine
+    - regular [gas](fuel_type)
+    - regular [petrol](fuel_type)
+    - [diesel](fuel_type) fuel
+    - [gas](fuel_type) fuel
+    - [hybrid](fuel_type) system
+    - [electric](fuel_type) vehicle
+    - [diesel](fuel_type) vehicle
+    - [gas](fuel_type) vehicle
+    - i prefer [gas](fuel_type)
+    - i prefer [diesel](fuel_type)
+    - i prefer [electric](fuel_type)
+    - i prefer [hybrid](fuel_type)
+    - i would prefer [gas](fuel_type)
+    - i would prefer [diesel](fuel_type)
+    - i would prefer [electric](fuel_type)
+    - i would prefer [hybrid](fuel_type)
+    - i want [gas](fuel_type)
+    - i want [diesel](fuel_type)
+    - i want [electric](fuel_type)
+    - i want [hybrid](fuel_type)
+    - just [gas](fuel_type)
+    - just [diesel](fuel_type)
+    - just [electric](fuel_type)
+    - just [hybrid](fuel_type)
+
+- intent: inform_size
+  examples: |
+    - [SUV](size)
+    - [compact](size)
+    - [midsize](size)
+    - [full-size](size)
+    - [truck](size)
+    - I want a [compact](size) car
+    - Looking for a [midsize](size) vehicle
+    - I need an [SUV](size)
+    - [full-size](size) car please
+    - I prefer [compact](size) cars
+    - Something [midsize](size)
+    - A [small](size) car would be perfect
+    - Need a [large](size) vehicle
+    - [SUV](size) would be ideal
+    - I'm interested in a [compact](size)
+    - Show me [midsize](size) options
+    - [truck](size) please
+    - Looking for a [pickup](size)
+    - Want a [crossover](size)
+    - Need something [compact](size)
+    - Prefer [mid-size](size)
+    - [full size](size) car
+    - [medium](size) sized car
+    - [small](size) car
+    - [large](size) car
+    - want an [SUV](size)
+    - need a [truck](size)
+    - looking for [compact](size)
+    - interested in [midsize](size)
+    - show me [SUV](size)s
+    - [compact](size) vehicle
+    - [midsize](size) car
+    - [full-size](size) vehicle
+    - something [compact](size)
+    - prefer [SUV](size)
+    - need [midsize](size)
+    - want [compact](size)
+    - [truck](size) type
+    - [pickup](size) truck
+    - [crossover](size) SUV
+    - I want an [SUV](size)
+    - give me a [compact](size)
+    - show me a [midsize](size)
+    - i need a [compact](size)
+    - i prefer an [SUV](size)
+    - get me a [truck](size)
+    - find me an [SUV](size)
+    - looking for an [SUV](size)
+    - searching for a [compact](size)
+    - want to see [midsize](size) options
+    - interested in [SUV](size)s
+    - need to find a [compact](size)
+    - would like an [SUV](size)
+    - thinking about a [midsize](size)
+    - considering an [SUV](size)
+
+- intent: ask_more_cars
+  examples: |
+    - could you provide me some more cars?
+    - show me more options
+    - what other cars do you recommend?
+    - any other suggestions?
+    - do you have more recommendations?
+    - can you suggest more cars?
+    - I'd like to see more options
+    - show me more cars
+    - what else do you have?
+    - any other cars?
+    - more cars please
+    - more options please
+    - more suggestions please
+    - more recommendations please
+    - can I see more cars?
+    - are there more options?
+    - do you have more suggestions?
+    - what other vehicles do you recommend?
+    - can you show me more vehicles?
+    - I want to see more options
+    - show me additional cars
+    - show me additional options
+    - show me additional recommendations
+    - show me additional suggestions
+    - what other vehicles are available?
+    - what other options do you have?
+    - what other suggestions do you have?
+    - what other recommendations do you have?
+    - can you show me more?
+    - can you suggest more?
+    - can you recommend more?
+    - can you show me additional options?
+    - can you suggest additional cars?
+    - can you recommend additional vehicles?

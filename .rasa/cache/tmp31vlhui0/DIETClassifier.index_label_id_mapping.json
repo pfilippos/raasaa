@@ -1,0 +1,13 @@
+{
+  "0": "affirm",
+  "1": "ask_car_recommendation",
+  "2": "ask_more_cars",
+  "3": "goodbye",
+  "4": "greet",
+  "5": "greet_with_name",
+  "6": "inform_budget",
+  "7": "inform_fuel_type",
+  "8": "inform_purpose",
+  "9": "inform_size",
+  "10": "thank_you"
+}

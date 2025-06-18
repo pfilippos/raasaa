@@ -1,0 +1,152 @@
+version: "3.1"
+
+intents:
+  - greet
+  - greet_with_name
+  - goodbye
+  - ask_car_recommendation
+  - inform_budget
+  - inform_purpose
+  - inform_fuel_type
+  - inform_size
+  - thank_you
+  - restart
+  - affirm
+  - ask_more_cars
+
+entities:
+  - budget
+  - purpose
+  - fuel_type
+  - size
+  - name
+
+actions:
+  - action_extract_budget
+  - action_extract_fuel_type
+  - action_greet_with_name
+  - action_extract_car_size
+  - action_summarize_and_recommend
+  - action_show_more_cars
+
+slots:
+  budget:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      action: action_extract_budget
+  purpose:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: purpose
+  fuel_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: fuel_type
+      - type: custom
+        action: action_extract_fuel_type
+  size:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: size
+      - type: custom
+        action: action_extract_car_size
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
+  remaining_cars:
+    type: list
+    mappings:
+    - type: custom
+
+responses:
+  utter_greet:
+  - text: "Hello! I'm your car recommendation assistant. I can help you find the perfect car based on your needs. Shall we start?"
+  - text: "Hi there! I'm your car recommendation assistant. Ready to help you find your dream car. Shall we begin?"
+  - text: "Welcome! I'm your car recommendation assistant. I'd be happy to help you find the perfect car. Should we get started?"
+
+  utter_greet_with_name:
+  - text: "Hello {name}! I'm your car recommendation assistant. I can help you find the perfect car based on your needs. Shall we start?"
+  - text: "Hi {name}! Great to meet you! I'm your car recommendation assistant. Ready to help you find your dream car?"
+  - text: "Welcome {name}! I'm excited to help you find the perfect car. Shall we begin our search?"
+
+  utter_ask_purpose:
+  - text: "What will you primarily use the car for? (city driving, long trips, family car, etc.)"
+
+  utter_ask_budget:
+  - text: "What's your budget range in dollars? You can specify it like '20000', '20k', or '20 thousand'."
+
+  utter_ask_fuel_type:
+  - text: "What type of fuel would you prefer? (gas, diesel, hybrid, electric)"
+
+  utter_ask_size:
+  - text: "What size of car are you looking for? (compact, midsize, SUV, etc.)"
+
+  utter_fallback_purpose:
+  - text: "I'm not sure I understood your intended use for the car. Could you please specify again what you'll primarily use it for? (city driving, long trips, family car, etc.)"
+
+  utter_fallback_budget:
+  - text: "I didn't quite catch your budget. Could you please specify it again? You can use formats like '20000', '20k', or '20 thousand'."
+
+  utter_fallback_fuel:
+  - text: "I'm not sure about your fuel preference. Could you please specify again what type of fuel you prefer? (gas, diesel, hybrid, electric)"
+
+  utter_fallback_size:
+  - text: "I didn't quite understand the car size you're looking for. Could you please specify again? (compact, midsize, SUV, etc.)"
+
+  utter_summarize_preferences:
+  - text: "Let me summarize your preferences: You want a {size} car for {purpose}, with a budget of ${budget} and {fuel_type} fuel type. Here are my recommendations:"
+  - text: "Based on your requirements: {size} car for {purpose}, budget of ${budget}, and {fuel_type} fuel type. Here are some great options:"
+  - text: "Perfect! I've got your preferences: {size} car for {purpose}, ${budget} budget, and {fuel_type} fuel type. Here are my top recommendations:"
+
+  utter_recommend_city_budget:
+  - text: "Based on your requirements for city driving and budget, I recommend:\n- Honda Civic (starting at $22,550, efficient, reliable)\n- Toyota Corolla (starting at $21,900, excellent fuel economy, affordable)\n- Hyundai Elantra (starting at $20,950, great value, modern features)\n- Kia Forte (starting at $19,890, stylish, fuel-efficient)\n- Mazda3 (starting at $22,550, premium feel, good handling)"
+
+  utter_recommend_family:
+  - text: "For a family car with your requirements, I recommend:\n- Toyota RAV4 (starting at $27,950, spacious SUV, reliable)\n- Honda CR-V (starting at $27,400, comfortable, good safety features)\n- Mazda CX-5 (starting at $26,700, premium feel, good safety)\n- Subaru Forester (starting at $25,195, excellent visibility, all-wheel drive)\n- Kia Sorento (starting at $29,390, three-row option, good value)"
+
+  utter_recommend_family_additional:
+  - text: "Here are some additional family car options:\n- Volkswagen Tiguan (starting at $26,490, versatile, good cargo space)\n- Hyundai Tucson (starting at $24,950, modern tech, comfortable ride)\n- Ford Escape (starting at $26,760, efficient, good handling)\n- Nissan Rogue (starting at $26,700, spacious, good value)\n- Chevrolet Equinox (starting at $26,600, fuel-efficient, practical)"
+
+  utter_recommend_luxury:
+  - text: "For a luxury vehicle within your requirements, I recommend:\n- BMW 3 Series (starting at $43,800, excellent performance, premium features)\n- Mercedes-Benz C-Class (starting at $44,600, luxury comfort, advanced tech)\n- Audi A4 (starting at $40,800, sophisticated design, quality interior)\n- Lexus IS (starting at $41,235, reliable luxury, smooth ride)\n- Genesis G70 (starting at $38,825, value luxury, great features)"
+
+  utter_recommend_luxury_additional:
+  - text: "Here are some additional luxury options:\n- Acura TLX (starting at $37,500, sporty, reliable)\n- Volvo S60 (starting at $36,950, safety-focused, elegant)\n- Cadillac CT4 (starting at $33,995, powerful, modern)\n- Infiniti Q50 (starting at $36,600, performance-oriented, comfortable)\n- Lincoln MKZ (starting at $36,990, refined, spacious)"
+
+  utter_recommend_electric:
+  - text: "For an electric vehicle, I recommend:\n- Tesla Model 3 (starting at $38,990, long range, high tech)\n- Chevrolet Bolt (starting at $26,500, affordable, good range)\n- Hyundai Kona Electric (starting at $33,550, practical, good value)\n- Ford Mustang Mach-E (starting at $42,995, performance, style)\n- Volkswagen ID.4 (starting at $38,995, spacious, good range)"
+
+  utter_recommend_electric_additional:
+  - text: "Here are some additional electric options:\n- Nissan Leaf (starting at $28,140, practical, proven reliability)\n- Kia Niro EV (starting at $39,550, efficient, good range)\n- Polestar 2 (starting at $48,400, premium, innovative)\n- Mini Cooper SE (starting at $30,900, fun to drive, compact)\n- Mazda MX-30 (starting at $33,470, stylish, efficient)"
+
+  utter_recommend_city_budget_additional:
+  - text: "Here are some additional city car options:\n- Nissan Sentra (starting at $20,510, fuel-efficient, modern)\n- Subaru Impreza (starting at $19,755, all-wheel drive, practical)\n- Volkswagen Jetta (starting at $20,655, refined, efficient)\n- Toyota Prius (starting at $24,200, hybrid, excellent mpg)\n- Honda Insight (starting at $23,900, hybrid, spacious)"
+
+  utter_goodbye:
+  - text: "Good luck with your car search! If you need more recommendations, feel free to ask."
+  - text: "Thanks for chatting! I hope you find your perfect car. Don't hesitate to return if you need more help!"
+  - text: "Have a great day! I hope my recommendations help you find your ideal car. Come back anytime for more advice!"
+  - text: "Best of luck with your car search! Remember, I'm here if you need more recommendations or have questions!"
+
+  utter_thank_you:
+  - text: "You're welcome! Is there anything else you'd like to know about these car recommendations?"
+  - text: "Happy to help! Would you like more details about any of these recommendations?"
+  - text: "My pleasure! Feel free to ask if you need more information about any of these cars!"
+
+  utter_default:
+  - text: "I'm not sure I understood that. Could you please rephrase it or tell me what kind of help you need with finding a car?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

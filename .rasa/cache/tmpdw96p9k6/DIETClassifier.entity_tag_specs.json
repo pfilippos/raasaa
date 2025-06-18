@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-fuel_type",
+      "2": "I-fuel_type",
+      "3": "L-fuel_type",
+      "4": "U-fuel_type",
+      "5": "B-purpose",
+      "6": "I-purpose",
+      "7": "L-purpose",
+      "8": "U-purpose",
+      "9": "B-size",
+      "10": "I-size",
+      "11": "L-size",
+      "12": "U-size",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-fuel_type": 1,
+      "I-fuel_type": 2,
+      "L-fuel_type": 3,
+      "U-fuel_type": 4,
+      "B-purpose": 5,
+      "I-purpose": 6,
+      "L-purpose": 7,
+      "U-purpose": 8,
+      "B-size": 9,
+      "I-size": 10,
+      "L-size": 11,
+      "U-size": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]
